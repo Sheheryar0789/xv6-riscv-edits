@@ -153,7 +153,7 @@ UPROGS=\
 	$U/_sleep\
 	$U/_memdump\
 	$U/_sixfive\
-	$U/_find\
+	$U/_find
 
 fs.img: mkfs/mkfs README $(UPROGS)
 	mkfs/mkfs fs.img README $(UPROGS)

@@ -63,29 +63,31 @@ memdump(char *fmt, char *data)
   while (*fmt != '\0'){
     switch (*fmt) {
       case 'i':
-        int32_t *i = (int32_t *) data;
+        int *i = (int *) data;
         printf("%d\n", *i);
         data += 4;
       break;
+
       case 'h':
-        int16_t *h = (int16_t *) data;
-        printf("%d\n", *h); // %d is for int so what about half int?
+        short *h = (short *) data;
+        printf("%d\n", *h);
         data += 2;
       break;
+
       case 'c':
-        printf("%c\n", *data); // not int
+        printf("%c\n", *data);
         data += 1;
       break;
 
       case 'p':
-        int64_t *p = (int64_t *) data;
-        printf("%x\n", *p); // big int
+        uint64 *p = (uint64 *) data;
+        printf("%lx\n", *p);
         data += 8;
       break;
 
       case 's':
         char **s = (char **) data;
-        printf("%s\n", *s); // big int
+        printf("%s\n", *s);
         data += 8;
       break;
 
@@ -98,5 +100,4 @@ memdump(char *fmt, char *data)
     }
     fmt++;
   }
-
 }
